@@ -1,0 +1,16 @@
+<div>
+    
+    <h3>Games Owned:</h3>
+    <ul>
+      <li *ngFor="let game of games">
+        <img [src]="game.image" alt="{{ game.name }}" width="100">
+        <h3>{{ game.name }}</h3>
+        <p>{{ game.description }}</p>
+        <p><strong>Genre:</strong> {{ game.genre }}</p>
+        <p><strong>Release Date:</strong> {{ game.releaseDate | date }}</p>
+        <p><strong>Price:</strong> {{ game.price | currency }}</p>
+        <p><strong>Rating:</strong> {{ game.rating }}</p>
+      </li>
+    </ul>
+</div>
+<div>teste</div>

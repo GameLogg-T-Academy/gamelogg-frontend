@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "gameIds": ["1", "2"]
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "gameIds": ["3", "4"]
+    }
+  ],
+  "games": [
+    {
+      "id": "1",
+      "name": "Game One",
+      "description": "Description for Game One.",
+      "genre": "Action",
+      "releaseDate": "2023-01-01",
+      "price": 59.99,
+      "rating": 4.5,
+      "image": "https://backloggd.com/games/elden-ring/"
+    },
+    {
+      "id": "2",
+      "name": "Game Two",
+      "description": "Description for Game Two.",
+      "genre": "Adventure",
+      "releaseDate": "2023-05-15",
+      "price": 49.99,
+      "rating": 4.0,
+      "image": "https://backloggd.com/games/grand-theft-auto-v/"
+    },
+    {
+      "id": "3",
+      "name": "Game Three",
+      "description": "Description for Game Three.",
+      "genre": "Puzzle",
+      "releaseDate": "2022-11-11",
+      "price": 19.99,
+      "rating": 3.5,
+      "image": "assets/images/game-three.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Game Four",
+      "description": "Description for Game Four.",
+      "genre": "Strategy",
+      "releaseDate": "2023-02-20",
+      "price": 29.99,
+      "rating": 4.2,
+      "image": "assets/images/game-four.jpg"
+    }
+  ]
+}
