@@ -1,12 +1,16 @@
-<div *ngIf="game">
-    <h1>{{ game.name }}</h1>
-    <img [src]="game.image" alt="{{ game.name }}">
-    <p><strong>Description:</strong> {{ game.description }}</p>
-    <p><strong>Genre:</strong> {{ game.genre }}</p>
-    <p><strong>Release Date:</strong> {{ game.releaseDate | date }}</p>
-    <p><strong>Price:</strong> {{ game.price | currency }}</p>
-    <p><strong>Rating:</strong> {{ game.rating }}</p>
+<div class="game-detail-container" *ngIf="game">
+  <div style="display: flex; flex-direction: column; margin-right: 20px;">
+    <img [src]="game.image" alt="{{ game.name }}" class="game-detail-image">
+    <button class="pink-button">Add game</button>
   </div>
-
-
-  
+  <div class="game-detail-description" style="margin-top: 8vh;">
+    <h1>{{ game.name }}</h1>
+    <p style="font-weight: 300;"><strong style="color: hsla(0, 0%, 100%, .58);">realeased on </strong> {{ game.releaseDate | date }}</p>
+    <p style="color: #badefc;">{{ game.description }}</p>
+  </div>
+  <div class="game-detail-info">
+    <p class="game-detail-info-by-component"><strong style="color: hsla(0, 0%, 100%, .58);">Genre:</strong> {{ game.genre }}</p>
+    <p class="game-detail-info-by-component"><strong style="color: hsla(0, 0%, 100%, .58);">Price:</strong> {{ game.price | currency }}</p>
+    <p class="game-detail-info-by-component"><strong style="color: hsla(0, 0%, 100%, .58);">Rating:</strong> {{ game.rating }}</p>
+  </div>
+</div>

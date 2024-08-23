@@ -1,0 +1,60 @@
+.game-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+  
+  .game-detail-image {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .game-detail-description {
+    max-width: 600px;
+    margin-right: 20px;
+  }
+  
+  .game-detail-description h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .game-detail-description p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .game-detail-description strong {
+    color: #cccccc;
+  }
+  
+  .game-detail-info {
+    margin-top: 15vh; font-size: small; 
+  }
+
+  .game-detail-info-by-component {
+    border: 2px solid  #badefc; 
+    border-radius: 8px;  
+    padding: 10px;
+  }
+
+  .pink-button {
+    background-color: #fc6399; /* Cor rosa */
+    color: #ffffff; /* Cor do texto branco */
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 20px; /* Espaço acima do botão */
+  }
+  
+  .pink-button:hover {
+    background-color: #c0608f; /* Tom mais claro de rosa no hover */
+  }  
