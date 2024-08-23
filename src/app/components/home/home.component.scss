@@ -1,46 +1,149 @@
-:host {
-    display: block;
-    background-color: #2b2b2b;
-    color: #ffffff;
-    padding: 20px 40px;
-    min-height: 100vh;
-  }
+.container{
+  margin-top: 50px;
+}
 
-  .container{
-    margin-top: 50px;
-  }
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-card {
+  background-color: #3c3c3c;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.game-image {
+  width: 100%;
+  border-radius: 8px;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.game-card:hover .game-image {
+  opacity: 0.5;
+}
+
+.game-title {
+  font-size: 18px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.game-card:hover .game-title {
+  opacity: 1;
+}
+
+
+/* Sidenav container */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #3c3c3c;
+  overflow-x: hidden;
+  transition: 0.5s;
+  color: #ffffff;
+  border-left: 1px solid #fc6399;
+
+
   
-  .game-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .game-card {
-    background-color: #3c3c3c;
-    border-radius: 8px;
-    margin: 10px;
-    padding: 15px;
-    width: 200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .game-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .game-image {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .game-title {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .game-info {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
+}
+
+.sidenav.open {
+  width: 300px; /* Largura do sidenav quando aberto */
+  padding: 5vh 0px 0px 10px
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #fc6399;
+}
+
+.sidenav h2 {
+  margin: 15px 0;
+  font-size: 24px;
+  color: #fc6399;
+}
+
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-button {
+  background-color: #fc6399;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.clear-button {
+  background-color: #3b4760;;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #e05385;
+  transform: scale(1.05);
+}
+
+.filter-button:active {
+  background-color: #c04472;
+}
+
+.clear-button:hover {
+  background-color: #677aa1;;
+  transform: scale(1.05);
+}
+
+.clear-button:active {
+  background-color: #3b4760;;
+}
