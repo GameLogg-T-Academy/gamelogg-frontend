@@ -1,16 +1,15 @@
-<div>
-    
-    <h3>Games Owned:</h3>
-    <ul>
-      <li *ngFor="let game of games">
-        <img [src]="game.image" alt="{{ game.name }}" width="100">
-        <h3>{{ game.name }}</h3>
-        <p>{{ game.description }}</p>
-        <p><strong>Genre:</strong> {{ game.genre }}</p>
-        <p><strong>Release Date:</strong> {{ game.releaseDate | date }}</p>
-        <p><strong>Price:</strong> {{ game.price | currency }}</p>
-        <p><strong>Rating:</strong> {{ game.rating }}</p>
-      </li>
-    </ul>
+<div class="container">
+  <div class="game-container">
+    <div *ngFor="let game of games" class="game-card">
+      <a [routerLink]="['/games', game.name]">
+        <img [src]="game.image" alt="{{ game.name }}" class="game-image">
+        <h3 class="game-title">{{ game.name }}</h3>
+      </a>
+      <p class="game-info"><strong>Genre:</strong> {{ game.genre }}</p>
+      <p class="game-info"><strong>Release Date:</strong> {{ game.releaseDate | date }}</p>
+      <p class="game-info"><strong>Price:</strong> {{ game.price | currency }}</p>
+      <p class="game-info"><strong>Rating:</strong> {{ game.rating }}</p>
+    </div>
+  </div>
+  
 </div>
-<div>teste</div>

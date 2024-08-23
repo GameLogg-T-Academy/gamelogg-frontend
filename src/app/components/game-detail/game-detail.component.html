@@ -1,0 +1,12 @@
+<div *ngIf="game">
+    <h1>{{ game.name }}</h1>
+    <img [src]="game.image" alt="{{ game.name }}">
+    <p><strong>Description:</strong> {{ game.description }}</p>
+    <p><strong>Genre:</strong> {{ game.genre }}</p>
+    <p><strong>Release Date:</strong> {{ game.releaseDate | date }}</p>
+    <p><strong>Price:</strong> {{ game.price | currency }}</p>
+    <p><strong>Rating:</strong> {{ game.rating }}</p>
+  </div>
+
+
+  

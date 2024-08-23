@@ -22,4 +22,8 @@ export class GameloggService {
   getUserById(userId: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
   }
+
+  getGameByName(name: string): Observable<Game[]> {
+    return this.http.get<Game[]>(`${this.apiUrl}/games?name=${name}`);
+  }
 }

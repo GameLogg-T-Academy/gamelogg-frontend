@@ -7,11 +7,12 @@ import { CommonModule } from '@angular/common';
 import { Game } from './model/game.model';
 import { GameloggService } from './service/gamelogg.service';
 import { User } from './model/user.model';
+import { GameDetailComponent } from './components/game-detail/game-detail.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet , CommonModule, HomeComponent, FormsModule],
+  imports: [RouterOutlet , CommonModule, HomeComponent, FormsModule, GameDetailComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
