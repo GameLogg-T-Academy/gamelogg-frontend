@@ -1,0 +1,52 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 6rem;
+    background-color: #0a0a0a;
+}
+
+header > div.logo > h1 {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+header > nav {
+    display: flex;
+    gap: 50px;
+    padding: 10px;
+    align-items: center;
+}
+
+nav > .account-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+nav > .user-prof {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    align-items: center;
+    cursor: pointer;
+}
+
+div.user-prof > img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+nav > input {
+    height: 2rem;
+    width: 350px;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #353535;
+}
+
+nav > input:focus {
+    outline: none;
+}

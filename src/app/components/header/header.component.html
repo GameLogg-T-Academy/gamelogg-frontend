@@ -1,0 +1,21 @@
+<header>
+    <div class="logo">
+        <h1>Gamelogg</h1>
+    </div>
+
+    <nav>
+        <div class="user-prof" *ngIf="logged">
+            <img src="{{userProfile}}" alt="{{username}}">
+            <h1>{{username}}</h1>
+        </div>
+
+        <div class="account-buttons" *ngIf="!logged">
+            <button>Log in</button>
+            <button>Register</button>
+        </div>
+
+        <button>Games</button>
+
+        <input type="text" placeholder="Search a game">
+    </nav>
+</header>
