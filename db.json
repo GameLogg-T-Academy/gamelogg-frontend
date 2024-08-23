@@ -16,43 +16,43 @@
   "games": [
     {
       "id": "1",
-      "name": "Game One",
-      "description": "Description for Game One.",
+      "name": "Elden Ring",
+      "description": "Elden Ring is a fantasy, action and open world game with RPG elements such as stats, weapons and spells. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
       "genre": "Action",
-      "releaseDate": "2023-01-01",
+      "releaseDate": "2022-02-25",
       "price": 59.99,
       "rating": 4.5,
-      "image": "https://backloggd.com/games/elden-ring/"
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg"
     },
     {
       "id": "2",
-      "name": "Game Two",
-      "description": "Description for Game Two.",
+      "name": "The Legend of Zelda: Tears of the Kingdom",
+      "description": "The Legend of Zelda: Tears of the Kingdom is the sequel to The Legend of Zelda: Breath of the Wild. The setting for Link’s adventure has been expanded to include the skies above the vast lands of Hyrule.",
       "genre": "Adventure",
-      "releaseDate": "2023-05-15",
+      "releaseDate": "2023-03-12",
       "price": 49.99,
-      "rating": 4.0,
-      "image": "https://backloggd.com/games/grand-theft-auto-v/"
+      "rating": 4.4,
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg"
     },
     {
       "id": "3",
-      "name": "Game Three",
-      "description": "Description for Game Three.",
-      "genre": "Puzzle",
-      "releaseDate": "2022-11-11",
+      "name": "Baldur's Gate 3",
+      "description": "An ancient evil has returned to Baldur's Gate, intent on devouring it from the inside out. The fate of Faerun lies in your hands. Alone, you may resist. But together, you can overcome.",
+      "genre": "Adventure",
+      "releaseDate": "2023-07-03",
       "price": 19.99,
-      "rating": 3.5,
-      "image": "assets/images/game-three.jpg"
+      "rating": 4.6,
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg"
     },
     {
       "id": "4",
-      "name": "Game Four",
-      "description": "Description for Game Four.",
+      "name": "Hades",
+      "description": "A rogue-lite hack and slash dungeon crawler in which Zagreus, son of Hades the Greek god of the dead, attempts to escape his home and his oppressive father by fighting the souls of the dead through the various layers of the ever-shifting underworld, while getting to know and forging relationships with its inhabitants.",
       "genre": "Strategy",
-      "releaseDate": "2023-02-20",
+      "releaseDate": "2020-09-17",
       "price": 29.99,
       "rating": 4.2,
-      "image": "assets/images/game-four.jpg"
+      "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co39vc.jpg"
     }
   ]
 }

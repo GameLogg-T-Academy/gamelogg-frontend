@@ -1,16 +1,46 @@
-<div>
-    
-    <h3>Games Owned:</h3>
-    <ul>
-      <li *ngFor="let game of games">
-        <img [src]="game.image" alt="{{ game.name }}" width="100">
-        <h3>{{ game.name }}</h3>
-        <p>{{ game.description }}</p>
-        <p><strong>Genre:</strong> {{ game.genre }}</p>
-        <p><strong>Release Date:</strong> {{ game.releaseDate | date }}</p>
-        <p><strong>Price:</strong> {{ game.price | currency }}</p>
-        <p><strong>Rating:</strong> {{ game.rating }}</p>
-      </li>
-    </ul>
+<div class="container">
+  <div style="color: #fc6399; cursor: pointer;  display: flex; flex-direction: row; justify-content: flex-end; margin: 0px 26vw;">
+    <span (click)="toggleSidenav()">Apply Filters</span>
+  </div>
+  <div class="game-container">
+    <div *ngFor="let game of filteredGames" class="game-card">
+      <a [routerLink]="['/games', game.name]">
+        <img [src]="game.image" alt="{{ game.name }}" class="game-image">
+        <h3 class="game-title">{{ game.name }}</h3>
+      </a>
+    </div>
+  </div>
+  
 </div>
-<div>teste</div>
+
+<div id="sidenav" class="sidenav" [class.open]="isSidenavOpen">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeSidenav()">&times;</a>
+  <div style="padding: 2vw;">
+    <h2 style="margin-bottom: 15px;">Filters</h2>
+    
+    <p>
+      Genre 
+      <select [(ngModel)]="genreFilter">
+        <option value="">All</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Strategy">Strategy</option>
+      </select>
+    </p>
+  
+     <p>
+      Price: <input type="range" min="0" max="100" [(ngModel)]="priceRangeFilter">
+      <span>{{ priceRangeFilter | currency }}</span>
+    </p>
+    
+    <p>
+      Release Year: 
+      <input type="number" min="2000" max="2024" [(ngModel)]="releaseYearFilter" placeholder="e.g., 2022">
+    </p>
+  
+    <div class="button-container">
+      <button class="filter-button" (click)="applyFilters()">Update Filters</button>
+      <button class="clear-button" (click)="clearFilters()">Clear</button>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Game } from '../model/game.model';
 import { User } from '../model/user.model';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { User } from '../model/user.model';
 })
 export class GameloggService {
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { 
   }
@@ -21,5 +22,9 @@ export class GameloggService {
 
   getUserById(userId: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
+  }
+
+  getGameByName(name: string): Observable<Game[]> {
+    return this.http.get<Game[]>(`${this.apiUrl}/games?name=${name}`);
   }
 }
