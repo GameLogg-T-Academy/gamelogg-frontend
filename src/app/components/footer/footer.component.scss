@@ -1,0 +1,30 @@
+footer {
+    background-color: #0a0a0a;
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+div.categories {
+    display: flex;
+    gap: 30px;
+    font-size: 18px;
+}
+
+div.categories > a:hover{
+    color: #999999;
+    transition: 500ms;
+}
+
+div.copywriting {
+    display: flex;
+    gap: 15px;
+    user-select: none;
+    font-size: 12px;
+}
