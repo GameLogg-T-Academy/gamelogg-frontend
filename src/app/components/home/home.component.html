@@ -1,16 +1,20 @@
 <div class="container">
-  <div style="color: #fc6399; cursor: pointer;  display: flex; flex-direction: row; justify-content: flex-end; margin: 0px 26vw;">
+  <div style="color: #fc6399; cursor: pointer;  display: flex; flex-direction: row; justify-content: flex-end;">
     <span (click)="toggleSidenav()">Apply Filters</span>
   </div>
   <div class="game-container">
     <div *ngFor="let game of filteredGames" class="game-card">
-      <a [routerLink]="['/games', game.name]">
-        <img [src]="game.image" alt="{{ game.name }}" class="game-image">
-        <h3 class="game-title">{{ game.name }}</h3>
+      <a [routerLink]="['/games', game.title]">
+        <img [src]="game.url" alt="{{ game.title }}" class="game-image">
+        <h3 class="game-title">{{ game.title }}</h3>
       </a>
     </div>
   </div>
-  
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </div>
 
 <div id="sidenav" class="sidenav" [class.open]="isSidenavOpen">
