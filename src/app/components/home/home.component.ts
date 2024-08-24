@@ -16,7 +16,12 @@ import { RouterModule } from '@angular/router';
 export class HomeComponent implements OnInit  {
   currentUser!: User;
   user!: User;
+
   games: Game[] = [];
+  currentPage: number = 1;
+  totalPages: number = 0;
+  limit: number = 10;
+
   filteredGames: Game[] = [];
   isSidenavOpen: boolean = false;
 
@@ -38,11 +43,13 @@ export class HomeComponent implements OnInit  {
     this.loadGames()
   }
 
-  loadGames() {
-      this.gameService.getAllGames().subscribe(games => {
-        this.games = games;
-        this.filteredGames = [...this.games];
-      });
+  loadGames(page: number = 1) {
+    this.gameService.getAllGames(page, this.limit).subscribe(response => {
+      this.games = response.content;
+      this.filteredGames = [...this.games];
+      this.currentPage = response.pageable.pageNumber;
+      this.totalPages = response.pageable.pageSize;
+    });
   }
 
   applyFilters() {
@@ -61,5 +68,17 @@ export class HomeComponent implements OnInit  {
     this.releaseYearFilter = '';
     this.filteredGames = [...this.games];
     this.closeSidenav();
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.loadGames(this.currentPage - 1);
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.loadGames(this.currentPage + 1);
+    }
   }
 }
