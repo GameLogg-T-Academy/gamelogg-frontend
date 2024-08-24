@@ -51,7 +51,7 @@
     padding: 5px 20px;
 }
 
-.games-container {
+.last-games > .games-container {
     width: 90%;
     height: auto;
     display: flex;
@@ -59,7 +59,7 @@
     justify-self: center;
     align-self: center;
     gap: 30px;
-    overflow-x: visible;
+    overflow-x: hidden;
 }
 
 .game-card {
@@ -141,7 +141,7 @@ section.played, section.favorites, section.by-status {
     margin: auto;
     min-height: 80vh;
 }
-section.played > div.game-container {
+section > div.game-container {
     display: flex;
     flex-wrap: wrap;
     width: 90vw;

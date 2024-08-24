@@ -21,7 +21,7 @@ export class ProfileComponent {
 
   index:number = 0;
 
-  totalPages: number = 10;
+  totalPages: number = 0;
   currentPage: number = 0;
   itemsPerPage:number = 25;
 
@@ -30,7 +30,7 @@ export class ProfileComponent {
   topGames: Game[] = [
     {
       id: 501,
-      name: "One Punch Man: A Hero Nobody Knows Deluxe Edition",
+      title: "One Punch Man: A Hero Nobody Knows Deluxe Edition",
       description: "Become a hero in this action-packed anime game.",
       genre: "Fighting",
       releaseDate: new Date(),
@@ -40,7 +40,7 @@ export class ProfileComponent {
   },
   {
       id: 502,
-      name: "ONE PIECE World Seeker Deluxe Edition",
+      title: "ONE PIECE World Seeker Deluxe Edition",
       description: "Join Luffy and his crew in this open-world adventure.",
       genre: "Adventure",
       releaseDate: new Date(),
@@ -50,7 +50,7 @@ export class ProfileComponent {
   },
   {
       id: 500,
-      name: "Back 4 Blood: Deluxe Edition",
+      title: "Back 4 Blood: Deluxe Edition",
       description: "Team up and fight against hordes of zombies.",
       genre: "Shooter",
       releaseDate: new Date(),
@@ -60,11 +60,16 @@ export class ProfileComponent {
   }
   ]
   games: Game[] = [];
-  
-  changeIndex(n:number){
+
+  gameByStatusActive:number = 0;
+
+  changePageSection(n:number){
     if (n >= 0 && n < 5) this.index = n;
+    
     if (this.index == 1) this.loadGames();
-    if (this.index == 2) this.loadFavorites();
+    else if (this.index == 2) this.loadFavorites();
+    else if (this.index == 3) this.getByStatus(0);
+    this.currentPage = 0;
   }
 
   constructor(private gameService: GameloggService, private fb: FormBuilder) {
@@ -81,50 +86,38 @@ export class ProfileComponent {
       developer: [''],
       publisher: ['']
     });
+
+    this.gameForm.statusChanges.subscribe(status => {
+      console.log('Form status:', status);
+      console.log('Form errors:', this.gameForm.errors);
+    });
   }
 
-  /* used to moved the carrossel, delete comment when component is finished*/
-  translateX = 0;
-  currentIndex = 0;
-  cardWidth = 210;
-  maxIndex = 0;
-  ngAfterViewInit() {
-    const carouselElement = document.querySelector('.last-games');
-    if (carouselElement) this.maxIndex = this.games.length - Math.floor(carouselElement.clientWidth / this.cardWidth);
-    
+  ngAfterViewInit() {    
     this.loadGames();
   }
-
-  next() {
-    if (this.currentIndex < this.maxIndex) {
-      this.currentIndex++;
-      this.translateX -= this.cardWidth;
-    }
-  }
-
-  prev() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.translateX += this.cardWidth;
-    }
-  }
-
+  
   loadGames(page: number = 0): void {
     this.gameService.getGameByPage(page, this.itemsPerPage).subscribe(data => {
       this.games = data.content;
+      this.totalPages = data.totalPages;
       this.currentPage = page;
     });
   }
 
-  changePage(page: number): void {
+  changePage(page: number, collection:string): void {
     this.currentPage = page;
-    this.loadGames(page);
+
+    if (collection == "played") this.loadGames(page);
+    else if (collection == "favorites") this.loadFavorites(page);
+    else if (collection == "by-status") this.getByStatus(this.gameByStatusActive, page);
   }
 
-  loadFavorites(): void {
-    this.gameService.getFavoriteGames().subscribe({
+  loadFavorites(page: number = 0): void {
+    this.gameService.getFavoriteGames(page, this.itemsPerPage).subscribe({
       next: (data: Page<Game>) => {
         this.favoriteGames = data.content; 
+        this.totalPages = data.totalPages;
       },
       error: (err) => {
         console.error('Error occurred:', err); 
@@ -132,13 +125,27 @@ export class ProfileComponent {
     });
   }
 
-  getByStatus(n:number) {
+  getByStatus(n:number, page: number = 0) {
     if (n == 0) {
-      this.gameService.getByStatus("completed").subscribe(data => this.gameByStatus = data);
+      this.gameService.getByStatus("Completed", page, this.itemsPerPage).subscribe(data => {
+        this.gameByStatus = data.content;
+        this.totalPages = data.totalPages;
+      });
+      this.gameByStatusActive = 0;
     } else if (n == 1) {
-      this.gameService.getByStatus("in_progress").subscribe(data => this.gameByStatus = data);
+      this.gameService.getByStatus("In Progress", page, this.itemsPerPage).subscribe(data => {
+        this.gameByStatus = data.content;
+        this.totalPages = data.totalPages;
+      });
+      this.gameByStatusActive = 1;
+
     } else if (n == 2) {
-      this.gameService.getByStatus("not_started").subscribe(data => this.gameByStatus = data);
+      this.gameService.getByStatus("Not Started", page, this.itemsPerPage).subscribe(data => {
+        this.gameByStatus = data.content;
+        this.totalPages = data.totalPages;
+      });
+      this.gameByStatusActive = 2;
+
     }
   }
 

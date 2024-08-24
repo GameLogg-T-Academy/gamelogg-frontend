@@ -35,12 +35,12 @@ export class GameloggService {
     return this.http.get<Page<Game>>(`${this.apiUrl}/games?pageNumber=${page}&pageSize=${size}`);
   }
 
-  getFavoriteGames(): Observable<Page<Game>> {
-    return this.http.get<Page<Game>>(`${this.apiUrl}/games?favorite=true`);
+  getFavoriteGames(page:number, size:number): Observable<Page<Game>> {
+    return this.http.get<Page<Game>>(`${this.apiUrl}/games?favorite=true&pageNumber=${page}&pageSize=${size}`);
   }
 
-  getByStatus(status:String): Observable<Game[]> {
-    return this.http.get<Game[]>(`${this.apiUrl}/games?status=${status}`);
+  getByStatus(status:String, page:number, size:number): Observable<Page<Game>> {
+    return this.http.get<Page<Game>>(`${this.apiUrl}/games?status=${status}&pageNumber=${page}&pageSize=${size}`);
   }
 
   createGame(game: Game) {

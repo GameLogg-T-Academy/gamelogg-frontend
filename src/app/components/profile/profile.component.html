@@ -1,9 +1,9 @@
 <section class="sections">
-    <button (click)="changeIndex(0)">Profile</button>
-    <button (click)="changeIndex(1)">Played</button>
-    <button (click)="changeIndex(2)">Favorites</button>
-    <button (click)="changeIndex(3)">Games by status</button>
-    <button (click)="changeIndex(4)">Add game</button>
+    <button (click)="changePageSection(0)">Profile</button>
+    <button (click)="changePageSection(1)">Played</button>
+    <button (click)="changePageSection(2)">Favorites</button>
+    <button (click)="changePageSection(3)">Games by status</button>
+    <button (click)="changePageSection(4)">Add game</button>
 </section>
 
 <section class="personal-info" *ngIf="index == 0">
@@ -17,16 +17,11 @@
     <div class="last-games">
         <h1>Last games</h1>
 
-        <div class="games-container" [style.transform]="'translateX(' + translateX + 'px)'">
-            <div *ngFor="let game of games" class="game-card">
-                  <img [src]="game.url" alt="{{ game.name }}" class="game-image">
-                  <h3 class="game-title">{{ game.name }}</h3>
+        <div class="games-container">
+            <div *ngFor="let game of games | slice:0:4" class="game-card">
+                  <img [src]="game.url" alt="{{ game.title }}" class="game-image">
+                  <h3 class="game-title">{{ game.title }}</h3>
             </div>
-        </div>
-
-        <div class="carousel-controls">
-            <button class="carousel-button" (click)="prev()" [disabled]="currentIndex === 0">Prev</button>
-            <button class="carousel-button" (click)="next()" [disabled]="currentIndex >= maxIndex">Next</button>
         </div>
     </div>
 
@@ -35,7 +30,7 @@
         <div>
             <div class="game-card" *ngFor="let game of topGames">
                 <img [src]="game.url" class="game-image">
-                <h3 class="game-title">{{ game.name }}</h3>
+                <h3 class="game-title">{{ game.title }}</h3>
             </div>
         </div>
     </div>
@@ -44,17 +39,17 @@
 <section class="played" *ngIf="index == 1">
     <div class="game-container">
         <div *ngFor="let game of games" class="game-card">
-            <a [routerLink]="['/games', game.name]">
-                <img [src]="game.url" alt="{{ game.name }}" class="game-image">
-                <h3 class="game-title">{{ game.name }}</h3>
+            <a [routerLink]="['/games', game.title]">
+                <img [src]="game.url" alt="{{ game.title }}" class="game-image">
+                <h3 class="game-title">{{ game.title }}</h3>
             </a>
         </div>
     </div>
 
-    <div class="pagination" *ngIf="games.length > itemsPerPage">
+    <div class="pagination">
         <button *ngFor="let page of [].constructor(totalPages); let i = index"
                 [class.active]="i === currentPage"
-                (click)="changePage(i)">
+                (click)="changePage(i, 'played')">
           {{ i + 1 }}
         </button>
       </div>
@@ -63,17 +58,17 @@
 <section class="favorites" *ngIf="index == 2">
     <div class="game-container">
         <div *ngFor="let game of favoriteGames" class="game-card">
-            <a [routerLink]="['/games', game.name]">
-                <img [src]="game.url" alt="{{ game.name }}" class="game-image">
-                <h3 class="game-title">{{ game.name }}</h3>
+            <a [routerLink]="['/games', game.title]">
+                <img [src]="game.url" alt="{{ game.title }}" class="game-image">
+                <h3 class="game-title">{{ game.title }}</h3>
             </a>
         </div>
     </div>
 
-    <div class="pagination" *ngIf="favoriteGames.length > itemsPerPage">
+    <div class="pagination">
         <button *ngFor="let page of [].constructor(totalPages); let i = index"
                 [class.active]="i === currentPage"
-                (click)="changePage(i)">
+                (click)="changePage(i, 'favorites')">
           {{ i + 1 }}
         </button>
       </div>
@@ -81,23 +76,24 @@
 
 <section class="by-status" *ngIf="index == 3">
     <div class="buttons">
-        <button>Completed</button>
-        <button>In progress</button>
-        <button>Not started</button>
+        <button (click)="getByStatus(0)">Completed</button>
+        <button (click)="getByStatus(1)">In progress</button>
+        <button (click)="getByStatus(2)">Not started</button>
     </div>
+
     <div class="game-container">
-        <div *ngFor="let game of favoriteGames" class="game-card">
-            <a [routerLink]="['/games', game.name]">
-                <img [src]="game.url" alt="{{ game.name }}" class="game-image">
-                <h3 class="game-title">{{ game.name }}</h3>
+        <div *ngFor="let game of gameByStatus" class="game-card">
+            <a [routerLink]="['/games', game.title]">
+                <img [src]="game.url" alt="{{ game.title }}" class="game-image">
+                <h3 class="game-title">{{ game.title }}</h3>
             </a>
         </div>
     </div>
 
-    <div class="pagination" *ngIf="gameByStatus.length > itemsPerPage">
+    <div class="pagination">
         <button *ngFor="let page of [].constructor(totalPages); let i = index"
                 [class.active]="i === currentPage"
-                (click)="changePage(i)">
+                (click)="changePage(i, 'by-status')">
           {{ i + 1 }}
         </button>
     </div>
