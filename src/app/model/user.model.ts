@@ -4,5 +4,5 @@ export interface User {
     id: number;
     name: string;
     email: string;
-    games: Game[];
+    games?: Game[];
   }

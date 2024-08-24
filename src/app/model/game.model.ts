@@ -1,10 +1,15 @@
 export interface Game {
     id: number;
-    name: string;
+    title: string;
     description: string;
-    genre: string;
-    releaseDate: Date;
+    url: string;
     price: number;
     rating: number;
-    image: string;
+    releaseDate: Date;
+    genre: string;
+    favorite?: Boolean;
+    status?: String;
+    developer?: String;
+    publisher?: String;
+    
 }
