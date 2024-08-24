@@ -43,6 +43,10 @@ export class GameloggService {
     return this.http.get<Page<Game>>(`${this.apiUrl}/games?status=${status}&pageNumber=${page}&pageSize=${size}`);
   }
 
+  getByGenre(genre:string, page:number, size:number): Observable<Page<Game>> {
+    return this.http.get<Page<Game>>(`${this.apiUrl}/games?genre=${genre}&pageNumber=${page}&pageSize${size}`);
+  }
+
   createGame(game: Game) {
     return this.http.post<Game>(`${this.apiUrl}/games`, game);
   }

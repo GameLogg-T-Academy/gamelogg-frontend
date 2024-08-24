@@ -84,26 +84,6 @@
     font-size: 16px;
 }
 
-.carousel-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.carousel-button {
-    background-color: #444;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.carousel-button:disabled {
-    background-color: #777;
-    cursor: not-allowed;
-}
-
 .top-games {
     border-top: 1px solid #333;
     padding: 10px;
