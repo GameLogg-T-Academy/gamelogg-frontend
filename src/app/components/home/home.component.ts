@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit  {
   user!: User;
 
   games: Game[] = [];
-  currentPage: number = 1;
+  currentPage: number = 0;
   totalPages: number = 0;
   limit: number = 10;
 
@@ -43,12 +43,12 @@ export class HomeComponent implements OnInit  {
     this.loadGames()
   }
 
-  loadGames(page: number = 1) {
+  loadGames(page: number = 0) {
     this.gameService.getAllGames(page, this.limit).subscribe(response => {
       this.games = response.content;
       this.filteredGames = [...this.games];
       this.currentPage = response.pageable.pageNumber;
-      this.totalPages = response.pageable.pageSize;
+      this.totalPages = response.totalPages
     });
   }
 
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit  {
   }
 
   previousPage() {
-    if (this.currentPage > 1) {
+    if (this.currentPage > 0) {
       this.loadGames(this.currentPage - 1);
     }
   }

@@ -1,6 +1,6 @@
 <div class="container">
   <div style="color: #fc6399; cursor: pointer;  display: flex; flex-direction: row; justify-content: flex-end;">
-    <span (click)="toggleSidenav()">Apply Filters</span>
+    <span style="color: #fc6399; margin: 2vw 5vw 0px 5vw;" (click)="toggleSidenav()">Apply Filters</span>
   </div>
   <div class="game-container">
     <div *ngFor="let game of filteredGames" class="game-card">
@@ -11,9 +11,9 @@
     </div>
   </div>
   <div class="pagination">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-    <span>Page {{ currentPage }} of {{ totalPages }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    <button (click)="previousPage()" [disabled]="currentPage === 0" style="color: #fc6399;">Previous</button>
+    <span>Page {{ currentPage+1 }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage+1 === totalPages" style="color: #fc6399;">Next</button>
   </div>
 </div>
 
