@@ -5,8 +5,10 @@
 
     <nav>
         <div class="user-prof" *ngIf="logged">
-            <img src="{{userProfile}}" alt="{{username}}">
-            <h1>{{username}}</h1>
+            <a href="/profile">
+                <img src="{{userProfile}}" alt="{{username}}">
+                <h1>{{username}}</h1>
+            </a>
         </div>
 
         <div class="account-buttons" *ngIf="!logged">

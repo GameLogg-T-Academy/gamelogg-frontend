@@ -24,7 +24,7 @@ nav > .account-buttons {
     gap: 10px;
 }
 
-nav > .user-prof {
+nav > .user-prof > a {
     display: flex;
     flex-direction: column;
     font-size: 12px;
@@ -32,7 +32,7 @@ nav > .user-prof {
     cursor: pointer;
 }
 
-div.user-prof > img {
+div.user-prof > a > img {
     width: 50px;
     height: auto;
     border-radius: 50%;

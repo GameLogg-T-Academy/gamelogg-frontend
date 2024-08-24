@@ -11,5 +11,4 @@ export interface Game {
     status?: String;
     developer?: String;
     publisher?: String;
-    
 }

@@ -1,0 +1,277 @@
+.sections {
+    display: flex;
+    height: 3.5rem;
+    align-content: center;
+    justify-content: center;
+    margin: 50px 0;
+    gap: 100px;
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: auto;
+    gap: 50px;
+}
+.personal-info > .bio {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    gap: 5px;
+    font-size: 26px;
+}
+
+.bio > img {
+    width: 120px;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+.bio > #user-name {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    font-size: 26px;
+}
+
+.bio > h1 {
+    margin: 5px 0;
+}
+.bio > p {
+    font-size: 18px;
+    margin-bottom: 5px 0 10px 0;
+}
+
+.last-games {
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.games-container {
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    gap: 30px;
+    overflow-x: visible;
+}
+
+.game-card {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    flex: 0 0 auto;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.game-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.game-title {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.carousel-button {
+    background-color: #444;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.carousel-button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+.top-games {
+    border-top: 1px solid #333;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-games > div {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.game-list .row {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.game-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    width: calc(20% - 10px);
+}
+
+section.played, section.favorites, section.by-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    min-height: 80vh;
+}
+section.played > div.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    padding: 20px;
+    gap: 30px;
+}
+
+div.game-container > div.game-card {
+    width: 15vw;
+}
+
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #555;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    filter: brightness(.8);
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+}
+  
+section.by-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.by-status > .buttons {
+    display: flex;
+    gap: 50px;
+    padding: 10px;
+}
+
+form {
+    background-color: #424242;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+form div {
+    margin-bottom: 15px;
+}
+  
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #f0f0f0;
+}
+  
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+  
+input[type="checkbox"] {
+    margin-right: 10px;
+    color: #333;
+}
+  
+input {
+    color: #333;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; 
+    margin: 0;
+}
+  
+section.add-game form > button {
+    background-color: #fc6399;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+}
+  
+.section.add-game form > button:hover {
+    background-color: #e05385;
+    transform: scale(1.05);
+}
+
+section.add-game form > button:active {
+    background-color: #c04472;
+}
+  
+.error-message {
+    color: #c04472;
+    font-size: 14px;
+}
+  
