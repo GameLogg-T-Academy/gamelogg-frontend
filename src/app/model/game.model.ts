@@ -6,5 +6,5 @@ export interface Game {
     releaseDate: Date;
     price: number;
     rating: number;
-    image: string;
+    url: string;
 }
