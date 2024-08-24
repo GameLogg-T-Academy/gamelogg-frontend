@@ -1,0 +1,18 @@
+<section>
+    <div class="game-container">
+        <div *ngFor="let game of games" class="game-card">
+            <a [routerLink]="['/games', game.title]">
+                <img [src]="game.url" alt="{{ game.title }}" class="game-image">
+                <h3 class="game-title">{{ game.title }}</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button *ngFor="let page of [].constructor(totalPages); let i = index"
+                [class.active]="i === currentPage"
+                (click)="changePage(i)">
+          {{ i + 1 }}
+        </button>
+      </div>
+</section>

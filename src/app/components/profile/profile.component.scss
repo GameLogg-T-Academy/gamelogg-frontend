@@ -51,7 +51,7 @@
     padding: 5px 20px;
 }
 
-.games-container {
+.last-games > .games-container {
     width: 90%;
     height: auto;
     display: flex;
@@ -59,7 +59,7 @@
     justify-self: center;
     align-self: center;
     gap: 30px;
-    overflow-x: visible;
+    overflow-x: hidden;
 }
 
 .game-card {
@@ -82,26 +82,6 @@
 .game-title {
     margin-top: 10px;
     font-size: 16px;
-}
-
-.carousel-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.carousel-button {
-    background-color: #444;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.carousel-button:disabled {
-    background-color: #777;
-    cursor: not-allowed;
 }
 
 .top-games {
@@ -141,7 +121,7 @@ section.played, section.favorites, section.by-status {
     margin: auto;
     min-height: 80vh;
 }
-section.played > div.game-container {
+section > div.game-container {
     display: flex;
     flex-wrap: wrap;
     width: 90vw;
