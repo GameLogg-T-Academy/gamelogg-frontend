@@ -1,19 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Game } from '../../model/game.model';
 import { RouterModule } from '@angular/router';
 import { GameloggService } from '../../service/gamelogg.service';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Page } from '../../model/page.model';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarModule, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, MatSnackBarModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
+  private _snackBar = inject(MatSnackBar);
+
   gameForm: FormGroup;
   username:string = "Johndoe";
   userBio:string = "Nothing here!";
@@ -72,7 +75,8 @@ export class ProfileComponent {
     this.currentPage = 0;
   }
 
-  constructor(private gameService: GameloggService, private fb: FormBuilder) {
+  constructor(
+    private gameService: GameloggService, private fb: FormBuilder) {
     this.gameForm = this.fb.group({
       title: ['', Validators.required],
       url: ['', Validators.required],
@@ -86,12 +90,8 @@ export class ProfileComponent {
       developer: [''],
       publisher: ['']
     });
-
-    this.gameForm.statusChanges.subscribe(status => {
-      console.log('Form status:', status);
-      console.log('Form errors:', this.gameForm.errors);
-    });
   }
+
 
   ngAfterViewInit() {    
     this.loadGames();
@@ -120,7 +120,7 @@ export class ProfileComponent {
         this.totalPages = data.totalPages;
       },
       error: (err) => {
-        console.error('Error occurred:', err); 
+        this.openSnackBar('Erro ao carregar jogos favoritos', 'fechar')
       }
     });
   }
@@ -149,11 +149,24 @@ export class ProfileComponent {
     }
   }
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+
+  
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+  }
+
   onSubmit(): void {
     if (this.gameForm.valid) {
       const game: Game = this.gameForm.value;
-      this.gameService.createGame(game).subscribe(data => console.log(data));
+      this.gameService.createGame(game).subscribe(data => console.log("Enviado com sucesso!", data));
+      this.openSnackBar('Enviado com sucesso!', 'fechar')
+    } else {
+      this.openSnackBar('Erro! Preencha todos os campos corretamente!', 'fechar')
     }
   }
-
 }

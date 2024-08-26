@@ -6,6 +6,7 @@
     background-color: #2b2b2b;
     color: #ffffff;
     border-radius: 8px;
+    height: 80vh;
   }
   
   .game-detail-image {
@@ -17,6 +18,7 @@
   .game-detail-description {
     max-width: 600px;
     margin-right: 20px;
+    margin-top: 8vh;
   }
   
   .game-detail-description h1 {
@@ -58,3 +60,19 @@
   .pink-button:hover {
     background-color: #c0608f; /* Tom mais claro de rosa no hover */
   }  
+
+  .font_ligth {
+    font-weight: 300;
+  }
+
+  .cinza {
+    color: hsla(0, 0%, 100%, .58);
+  }
+
+  .azul {
+    color: #badefc;
+  }
+
+  .game-content {
+    display: flex; flex-direction: column; margin-right: 20px;
+  }

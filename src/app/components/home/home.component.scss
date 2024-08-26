@@ -153,3 +153,23 @@
 .pagination {
   font-size: smaller;
 }
+
+.content {
+  color: #fc6399; cursor: pointer;  display: flex; flex-direction: row; justify-content: flex-end;
+}
+
+.pink {
+  color: #fc6399;
+}
+
+.margin{
+  margin: 2vw 5vw 0px 5vw;
+}
+
+.sidenav-container {
+  padding: 2vw;
+}
+
+.sidenav-content {
+  margin-bottom: 15px;
+}

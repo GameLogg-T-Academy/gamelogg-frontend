@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { GameloggService } from '../../service/gamelogg.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-game-detail',
