@@ -45,3 +45,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## db.json 
 
 `npx json-server db.json`
+
+## group
+<ol>
+    <li>Emilly Santiago</li>
+    <li>Paulo Henrique</li>
+    <li>Gabriel Gonçalves</li>
+    <li>Igor Monteiro</li>
+</ol>
