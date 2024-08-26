@@ -1,7 +1,7 @@
 <div class="game-detail-container" *ngIf="game">
   <div class="game-content">
     <img [src]="game.url" alt="{{ game.title }}" class="game-detail-image">
-    <!-- <button class="pink-button">Add game</button> -->
+    <button class="pink-button" (click)="removeClick()">Remove</button>
   </div>
   <div class="game-detail-description">
     <h1>{{ game.title }}</h1>

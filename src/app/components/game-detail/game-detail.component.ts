@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../model/game.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameloggService } from '../../service/gamelogg.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +18,8 @@ export class GameDetailComponent  implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private gameService: GameloggService
+    private gameService: GameloggService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +31,9 @@ export class GameDetailComponent  implements OnInit {
     }
   }
 
-  
-
+  removeClick(): void {
+    this.gameService.removeById(this.game.id);
+    alert("Game removed succesfully")
+    this.router.navigate(['/']);
+  }
 }
