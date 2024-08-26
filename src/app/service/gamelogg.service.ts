@@ -63,4 +63,15 @@ export class GameloggService {
       observe: 'response'
     });
   }
+
+  removeById(id: number): void {
+    this.http.delete(`${this.apiUrl}/games/${id}`).subscribe({
+      next: () => {
+        console.log(`Game with id ${id} deleted successfully.`);
+      },
+      error: (err) => {
+        console.error('Error deleting game:', err);
+      }
+    });
+  }
 }

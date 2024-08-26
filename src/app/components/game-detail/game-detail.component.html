@@ -2,6 +2,7 @@
   <div style="display: flex; flex-direction: column; margin-right: 20px;">
     <img [src]="game.url" alt="{{ game.title }}" class="game-detail-image">
     <button class="pink-button">Add game</button>
+    <button class="pink-button" (click)="removeClick()">Remove</button>
   </div>
   <div class="game-detail-description" style="margin-top: 8vh;">
     <h1>{{ game.title }}</h1>
