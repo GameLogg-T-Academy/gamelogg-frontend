@@ -6,8 +6,8 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, title: 'Home'},
-    { path: 'games', component: HomeComponent },
     { path: 'games/:name', component: GameDetailComponent },
     { path: 'profile', component: ProfileComponent, title: 'Profile' },
-    { path: 'search/:genre', component: SearchPageComponent, title: "Search"}
+    { path: 'search/genre/:genre', component: SearchPageComponent, title: "Search"},
+    { path: 'search/title/:title', component: SearchPageComponent, title: "Search"}
 ];

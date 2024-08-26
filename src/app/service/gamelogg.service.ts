@@ -27,8 +27,8 @@ export class GameloggService {
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
   }
 
-  getGameByName(name: string): Observable<Game[]> {
-    return this.http.get<Game[]>(`${this.apiUrl}/games?name=${name}`);
+  getGameByName(title: string, page: number = 0, size: number = 10): Observable<Page<Game>> {
+    return this.http.get<Page<Game>>(`${this.apiUrl}/games?title=${title}&pageNumber=${page}&pageSize=${size}`);
   }
 
   getGameByPage(page: number, size: number): Observable<Page<Game>> {

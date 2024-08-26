@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Game } from './model/game.model';
-import { GameloggService } from './service/gamelogg.service';
-import { User } from './model/user.model';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GameDetailComponent } from './components/game-detail/game-detail.component';

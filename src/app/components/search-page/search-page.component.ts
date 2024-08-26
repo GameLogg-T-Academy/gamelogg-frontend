@@ -17,6 +17,7 @@ export class SearchPageComponent {
   itensPerPage: number = 10;
   totalPages: number = 0;
   genre: string = '';
+  title: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -25,12 +26,17 @@ export class SearchPageComponent {
 
   ngOnInit(): void {
     const genre = this.route.snapshot.paramMap.get('genre');
-
+    const title = this.route.snapshot.paramMap.get('title');
     if (genre) {
       this.genre = genre;
-      this.gameService.getByGenre(genre, 0, 10).subscribe((data) => {
+      this.gameService.getByGenre(genre, 0, this.itensPerPage).subscribe((data) => {
         this.games = data.content;
       });
+    } else if (title) {
+      this.title = title;
+      this.gameService.getGameByName(title, 0, this.itensPerPage).subscribe(data => {
+        this.games = data.content;
+      })
     }
   }
 

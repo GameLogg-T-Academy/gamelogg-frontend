@@ -25,8 +25,7 @@ export class GameDetailComponent  implements OnInit {
     console.log(gameName);
     if (gameName) {
       this.gameService.getGameByName(gameName).subscribe((data) => {
-        this.game = data[0];
-        console.log( this.game);
+        this.game = data.content[0];
       });
     }
   }
