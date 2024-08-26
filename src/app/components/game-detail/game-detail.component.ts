@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GameloggService } from '../../service/gamelogg.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-game-detail',
@@ -22,7 +23,6 @@ export class GameDetailComponent  implements OnInit {
 
   ngOnInit(): void {
     const gameName = this.route.snapshot.paramMap.get('name');
-    console.log(gameName);
     if (gameName) {
       this.gameService.getGameByName(gameName).subscribe((data) => {
         this.game = data.content[0];
