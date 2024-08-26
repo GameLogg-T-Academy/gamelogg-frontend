@@ -42,9 +42,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 "# gamelogg-frontend" 
 
-## db.json 
+## db.json - Fake API
 
-`npx json-server db.json`
+`npx json-server db.json` and change gamelogg.server to ```import { environment } from '../../environments/environment```
 
 ## group
 <ol>
