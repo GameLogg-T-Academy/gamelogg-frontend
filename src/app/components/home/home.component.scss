@@ -1,6 +1,7 @@
 .container{
   margin-top: 50px;
   margin: 0px 15vw;
+  min-height: 90vh;
 }
 
 .game-container {
@@ -172,4 +173,9 @@
 
 .sidenav-content {
   margin-bottom: 15px;
+}
+
+.black{
+  color: #3c3c3c !important;
+  margin-bottom: 8px;
 }
