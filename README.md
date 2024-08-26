@@ -31,6 +31,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Search by title
 ![Dashboard][image5]
 
+## Remove Game
+![image](https://github.com/user-attachments/assets/e09d4456-2580-4d11-a693-31be83fbdc87)
+
+
 [image]: public/images/image.png
 [image2]: public/images/image-2.png
 [image3]: public/images/image-3.png
