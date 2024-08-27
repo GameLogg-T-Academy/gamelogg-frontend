@@ -1,6 +1,14 @@
-# BackloggdFullStack
+# gamelogg-frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+
+## group
+<ol>
+    <li>Emilly Santiago</li>
+    <li>Paulo Henrique</li>
+    <li>Gabriel Gonçalves</li>
+    <li>Igor Monteiro</li>
+</ol>
 
 ## Development server
 
@@ -49,11 +57,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## db.json - Fake API
 
 `npx json-server db.json` and change gamelogg.server to ```import { environment } from '../../environments/environment```
-
-## group
-<ol>
-    <li>Emilly Santiago</li>
-    <li>Paulo Henrique</li>
-    <li>Gabriel Gonçalves</li>
-    <li>Igor Monteiro</li>
-</ol>
